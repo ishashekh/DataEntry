@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/viewFragment">
+
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.manmohan7.dataentry.ViewFragment"
+        android:label="fragment_view"
+        tools:layout="@layout/fragment_view" >
+        <action
+            android:id="@+id/action_viewFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_fetchDataFragment"
+            app:destination="@id/fetchDataFragment" />
+        <action
+            android:id="@+id/action_viewFragment_self"
+            app:destination="@id/viewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.manmohan7.dataentry.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.manmohan7.dataentry.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
+        <argument
+            android:name="studentId"
+            app:argType="string" />
+        <argument
+            android:name="studentName"
+            app:argType="string" />
+        <argument
+            android:name="grade"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fetchDataFragment"
+        android:name="com.manmohan7.dataentry.FetchDataFragment"
+        android:label="fragment_fetch_data"
+        tools:layout="@layout/fragment_fetch_data" />
+</navigation>
